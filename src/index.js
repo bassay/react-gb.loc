@@ -2,16 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+// *Развернуть новый проект с использованием create-react-app.
+// *Создать компонент Message, отображающий переданный ему пропсом текст.
+// * Изменить компонент App так, чтобы тот рендерил Message и передавал ему
+// пропсом текст (константу).
+// * Стилизовать компоненты через css (при желании можно использовать less
+// или sass, однако для sass нужно дополнительно установить node-sass: документация CRA).
+// *Установить расширение React Devtools.
