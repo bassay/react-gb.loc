@@ -1,12 +1,16 @@
 import React from "react";
 
-function MessageItem() {
+function MessageItem(props) {
+    // console.log(props)
+
+    const styles ={
+        li:{
+            listStyle:'none',
+        }
+    }
+
     return (
-        <ul>
-            <li>Сообщение 1</li>
-            <li>Сообщение 2</li>
-            <li>Сообщение 3</li>
-        </ul>
+        <li style={styles.li}>{props.body}</li>
     )
 }
 

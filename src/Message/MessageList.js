@@ -1,14 +1,19 @@
 import React from "react";
 import MessageItem from "./MessageItem";
 
-function MessageList(){
+function MessageList(props) {
     return (
         <>
-            <h1>Компонент MessageList - Заголовок</h1>
-            <MessageItem />
+            <ul>
+                {
+                    props.message.map(el => {
+                            return <MessageItem body={el.body} key={el.id}/>
+                        }
+                    )
+                }
+            </ul>
         </>
-
-
     )
 }
+
 export default MessageList

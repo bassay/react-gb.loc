@@ -1,7 +1,7 @@
 import './App.scss';
-// import Message from "./Message";
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import MessageList from "./Message/MessageList";
+import AddMessage from "./Message/AddMessage";
 
 // Добавить в компонент App поле стейта messageList. В нем хранить массив объектов - сообщений (объект должен содержать, как минимум, поля text и author). Начальное значение - пустой массив).
 // Рендерить список сообщений через map.
@@ -14,31 +14,65 @@ import MessageList from "./Message/MessageList";
 
 function App() {
     // const [count, setCount] = useState(0)
-    const [value, setValue] = useState("");
+    // дефолтные сообщения
+    const dataMessage = []
+    // const [value, setValue] = useState("");
+    const [message, setMessage] = useState(dataMessage)
 
-    function handleClick(e){
-        setValue(
-            console.log('handleClick', e)
+    useEffect(
+        () => {
+            if (message.length !== 0) {
+                console.log(message)
+                // запара, думал добавлять к массиву новое сообщение!
+                // все зациклилось!
+            }
+        }, [message]
+    );
+
+    function addBotMessage() {
+        setTimeout(
+            setMessage(
+                message.concat(
+                    [
+                        {
+                            id: Date.now(),
+                            author: 'BOT',
+                            body: "Фикс сообщение от бота"
+                        }
+                    ]
+                )
+            ), 1500)
+    }
+
+
+    function addMessage(body) {
+        setMessage(
+            message.concat(
+                [
+                    {
+                        id: Date.now(),
+                        author: 'ADMIN',
+                        body: body
+                    }
+                ]
+            )
         )
-    };
+    }
 
     return (
         <>
             <div className="App">
                 <header className="App-header">
-                    <MessageList/>
-
-                    <form onSubmit={handleClick}>
-                        <input type="text"/>
-                        <button>Отправить</button>
-                    </form>
-
-
-
+                    <h1>Мини чат с ботом</h1>
+                    {message.length ? <MessageList message={message}/> :
+                        <span>Начните чат! Напишите свое первое сообщение</span>}
+                    <AddMessage onCreate={addMessage}/>
                 </header>
             </div>
         </>
     )
+
+
 }
 
 export default App
