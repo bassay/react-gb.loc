@@ -25,6 +25,9 @@ function App() {
                 console.log(message)
                 // запара, думал добавлять к массиву новое сообщение!
                 // все зациклилось!
+
+                // думал вызавать бота через функцию addBotMessage()
+                // addBotMessage();
             }
         }, [message]
     );
