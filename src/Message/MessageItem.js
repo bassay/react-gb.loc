@@ -1,18 +1,19 @@
 import React from "react";
 
 function MessageItem(props) {
-    // console.log(props)
-
-    const styles ={
-        li:{
-            listStyle:'none',
-        }
-    }
-
+    const styles = {
+        li: {
+            listStyle: "none",
+            textAlign: "left",
+        },
+    };
     return (
-        <li style={styles.li}>{props.body}</li>
-    )
+        <li style={styles.li}>
+            {" "}
+            <i>{props.user}: </i>
+            {props.body}
+        </li>
+    );
 }
 
-
-export default MessageItem
+export default MessageItem;
