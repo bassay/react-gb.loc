@@ -1,1 +1,2 @@
-console.log(`re`)
+// const a = /abc/
+// console.log(typeof a+1)
